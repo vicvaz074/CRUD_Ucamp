@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD Avanzado</title>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gestión de Tareas Avanzada</h1>
+    <p>CRUD + Búsqueda + Filtros + Exportar PDF</p>
+  </header>
+
+  <main>
+    <!-- Formulario para crear/actualizar -->
+    <section class="form-section">
+      <h2 id="form-title">Crear Nueva Tarea</h2>
+      <form id="task-form">
+        <input type="hidden" id="task-id" />
+        <div class="input-group">
+          <label for="task-name">Nombre de la tarea:</label>
+          <input type="text" id="task-name" placeholder="Describe tu tarea" required />
+        </div>
+        <div class="input-group">
+          <label for="task-desc">Descripción:</label>
+          <textarea id="task-desc" placeholder="Detalles..." required></textarea>
+        </div>
+        <button type="submit" id="submit-btn">Guardar</button>
+        <button type="button" id="cancel-btn" class="hidden">Cancelar</button>
+      </form>
+    </section>
+
+    <!-- Controles de búsqueda y filtro -->
+    <section class="list-section" id="list-section">
+      <div class="controls">
+        <input type="text" id="search-input" placeholder="🔍 Buscar tareas..." />
+        <select id="filter-select">
+          <option value="all">Todas</option>
+          <option value="name_asc">Nombre A-Z</option>
+          <option value="name_desc">Nombre Z-A</option>
+          <option value="recent">Más recientes</option>
+        </select>
+        <button id="download-btn">📥 Descargar PDF</button>
+      </div>
+
+      <!-- Tabla para listar tareas -->
+      <h2>Lista de Tareas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="task-table-body">
+          <!-- Filas generadas dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 UCamp - Fundamentos de desarrollo Web. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Librería para exportar a PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <!-- Lógica JS -->
+  <script src="script.js"></script>
+</body>
+</html>
